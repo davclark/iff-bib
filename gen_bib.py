@@ -23,14 +23,14 @@ with open('./feld-studies.csv') as infile:
         # (see for example the results of the first entry, around the ':').
         # This is an example of how we might do other necessary
         # transformations.
-        new_title_words = []
-        for word in bib['Title'].split():
-            if word[0].isupper():
-                new_title_words.append(wrap_template.substitute(word=word))
-            else:
-                new_title_words.append(word)
+        # new_title_words = []
+        # for word in bib['Title'].split():
+        #     if word[0].isupper():
+        #         new_title_words.append(wrap_template.substitute(word=word))
+        #     else:
+        #         new_title_words.append(word)
+        # bib['Title'] = ' '.join(new_title_words)
 
-        bib['Title'] = ' '.join(new_title_words)
         # We can't have spaces or slashes in our template identifiers
         bib['Abstract'] = bib['Abstract / Summary']
 
