@@ -21,5 +21,11 @@ with open('./german-studies.csv') as infile:
     for i, bib in enumerate(DictReader(infile)):
         # I think Zotero just throws this away...
         bib['key'] = str(i)
+        bib_type = bib['bibtex_type']
 
-        print(bib_templates[bib['bibtex_type'].substitute(bib))
+        # An example of rudimentary parsing... not quite ready to go fully down
+        # this route!
+        if bib_type == 'incollection' and bib['Publication'].startswith('In '):
+            bib['Publication'] = bib['Publication'][3:]
+
+        print(bib_templates[bib_type].substitute(bib))
