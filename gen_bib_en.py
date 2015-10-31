@@ -9,13 +9,14 @@ working in utf-8. (The default for Python source is also utf-8.)'''
 from string import Template
 from csv import DictReader
 
-with open('./template.bib') as template_in:
+with open('./template_en.bib') as template_in:
     bib_template = Template(template_in.read())
 
+# This was for the unnecessary(?) commented bit below
 # For the title, we wrap capitalized words in {}'s
 # Not sure if this matters for Zotero, but we may as well produce relatively
 # well-formatted BibTeX
-wrap_template = Template('{$word}')
+# wrap_template = Template('{$word}')
 
 with open('./feld-studies.csv') as infile:
     for i, bib in enumerate(DictReader(infile)):
